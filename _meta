@@ -1,5 +1,0 @@
-<package project="Mer:Trunk:Base" name="perl-Test-Pod">
-  <title>Perl module for checking for POD errors in files</title>
-  <description/>
-  <url>http://search.cpan.org/dist/Test-Pod/</url>
-</package>
