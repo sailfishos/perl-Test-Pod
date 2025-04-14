@@ -1,13 +1,11 @@
 #specfile originally created for Fedora, modified for Moblin Linux
 Name:           perl-Test-Pod
-Version:        1.42
+Version:        1.52
 Release:        1
 Summary:        Perl module for checking for POD errors in files
-
-Group:          Development/Libraries
 License:        GPL+ or Artistic
 URL:            http://search.cpan.org/dist/Test-Pod/
-Source0:        http://www.cpan.org/authors/id/P/PE/PETDANCE/Test-Pod-%{version}.tar.gz
+Source0:        Test-Pod-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -20,36 +18,23 @@ Requires:   perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 %description
 %{summary}.
 
-
 %prep
 %setup -q -n Test-Pod-%{version}
 
-
 %build
-%{__perl} Build.PL  --installdirs vendor
-./Build
-
+%{__perl} Makefile.PL INSTALLDIRS=vendor NO_PACKLIST=1 NO_PERLLOCAL=true
+%make_build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-./Build install destdir=$RPM_BUILD_ROOT create_packlist=0
+%make_install
 find $RPM_BUILD_ROOT -type f -name .packlist -exec rm -f {} ';'
-find $RPM_BUILD_ROOT -type d -depth -exec rmdir {} 2>/dev/null ';'
+find $RPM_BUILD_ROOT -type f -name perllocal.pod -exec rm -f {} ';'
 chmod -R u+w $RPM_BUILD_ROOT/*
 
-
 %check
-LC_ALL=C ./Build test
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
+LC_ALL=C make test
 
 %files
-%defattr(-,root,root,-)
 %doc Changes
 %{perl_vendorlib}/Test/
 %doc %{_mandir}/man3/*.3pm*
-
-

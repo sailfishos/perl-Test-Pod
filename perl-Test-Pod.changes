@@ -1,10 +1,13 @@
+* Mon Apr 14 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.52
+- Update to version 1.52. JB#57055
+
 * Wed Jul 28 2010 Quanxian Wang <quanxian.wang@intel.com>  - 1.42
 - update to 1.42
 
 * Tue Jul 20 2010 Quanxian Wang <quanxian.wang@intel.com>  - 1.40
 - Change the version dependency
 
-* Wed June 30 2010 Quanxian Wang <quanxian.wang@intel.com>  - 1.40
+* Wed Jun 30 2010 Quanxian Wang <quanxian.wang@intel.com>  - 1.40
 - Add %doc before man file entry
 
 * Thu Dec 24 2009 Passion Zhao <passion.zhao@intel.com> - 1.40
