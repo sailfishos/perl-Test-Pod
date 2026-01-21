@@ -1,7 +1,7 @@
 #specfile originally created for Fedora, modified for Moblin Linux
 Name:           perl-Test-Pod
 Version:        1.52
-Release:        1
+Release:        2
 Summary:        Perl module for checking for POD errors in files
 License:        GPL+ or Artistic
 URL:            http://search.cpan.org/dist/Test-Pod/
@@ -9,7 +9,7 @@ Source0:        Test-Pod-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-BuildRequires:  perl(Module::Build) >= 0.30
+BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Pod::Simple) >= 3.07
 BuildRequires:  perl(Test::Builder::Tester) >= 1.02
 BuildRequires:  perl(Test::More) >= 0.70
